@@ -46,12 +46,15 @@
 		var zoomControl = new kakao.maps.ZoomControl();
 		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
         }
-
+	function popup(){
+            //window.open("팝업 소스파일", "별명", "스타일 설정")
+            window.open("event.html", "event 12월", "width=500px, height=550px, scrollbars=yes");
+        }
 	</script>
     <title>☆Lucky Bag☆</title>
 </head>
 
-<body onload="w3_open(); c01_1(); getGeolocation();">
+<body onload="w3_open(); c01_1(); getGeolocation(); popup();">
     <div id="loginSidebar">
         <div class="w3-sidebar w3-bar-block w3-card w3-animate-top" id="rightMenu">
             <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large w3-hover-none">&times;</button>           
@@ -412,9 +415,9 @@
                     </div>
                 </div>
             </div>
-	<div class="ad">
-            <img src="./media/ad02.png">
-        </div>
+		<div class="ad">
+            		<img src="./media/ad02.png">
+        	</div>
         </article>
         <aside id="right">
             <div class="top">
