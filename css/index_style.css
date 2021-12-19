@@ -1,0 +1,425 @@
+*{
+    font-family: 'Noto Sans KR', Arial, Helvetica, sans-serif;
+}
+/* header, nav, section, article, aside, div, ul, li, span, img, p, h1, h2, .tExplan, .tTitl, ol{
+    border:2px solid gray;
+} */
+#rightMenu{
+    display: none;
+    right: 0;
+    min-width: 16em;
+    height: auto;
+    z-index: 2;
+}
+#login h3{
+    margin-left: 0.1em;
+}
+.lo{
+    background-color: rgb(245, 122, 29);
+    color: white;
+    border:0em;
+    padding:0.2em 0.5em;
+    border-radius: 0.2em;
+}
+.snsLogin button{
+    border: 0.0625em solid rgb(243, 234, 234);
+    background-color: white;
+    width: 14em;
+    height: 2em;
+    text-align: left;
+    margin-top: 0.2em;
+    cursor: pointer;
+}
+.snsLogin img{
+    width:1.2em;
+    height: 1.2em;
+}
+section{
+    display: flex;
+}
+#left, #right{
+    flex:1;
+}
+article{
+    flex: 4;
+}
+a{
+    text-decoration: none;
+    color: inherit; /* 링크의 색상 제거 */
+}
+#up{
+    display: flex;
+    margin-top: 1em;
+    font-size: 0.875em;
+    color: rgb(168, 164, 164);
+}
+#language, #upBar{
+    flex: 1;
+    text-align: center;
+}
+#up span{
+    display: inline-block;
+}
+#up a:hover{
+    color: rgb(245, 122, 29);
+}
+#search{
+    display: inline-block;
+    border-radius: 1em;
+    border: 0.3em solid rgb(245, 122, 29);
+    width: 18em;
+}
+#search input{
+    border: 0em;
+    background-color: inherit;
+    width: 15em;
+}
+#search ::placeholder{
+    color: rgb(224, 181, 147);
+}
+#search button{
+    border: 0em;
+    background-color: inherit;
+    color: rgb(245, 122, 29);
+}
+#title{
+    display: flex;
+    justify-content: center; /*가운데 정렬*/
+    align-items: center; /*가운데 정렬*/
+    margin: 1.2em auto;
+}
+.tImg{
+    display: inline-block;
+    width: 5em;
+    height: 5em;
+}
+.tExplan{
+    font-size: 0.875em;
+    color: gray;
+}
+.tTitle{
+    font-weight: bold;
+    font-size: 2.5em;
+}
+nav{
+    position : sticky;
+    top: 0em;
+    z-index: 1;
+    background-color: white;
+}
+ul button{
+    background-color: inherit;
+    border: 0em;
+    color:rgb(245, 122, 29);
+    font-size: 1.5em;
+    position: absolute;
+    left: 11em;
+    top: 0.2em
+}
+nav ul{
+    padding: 0em;
+    margin: 0em;
+    list-style-type: none;
+    text-align: center;
+    position: relative;
+    border: 0.0625em solid rgb(243, 234, 234);
+}
+#U01, #U02, #U03, #U04{
+    position: absolute;
+    width: 10em;
+    background-color: white;
+    color: black;
+}
+nav ul li ul li{
+    display: block;
+    line-height: 1em; /*높이값 / 폰트값 = 1*/
+    padding: 1em;
+    border: 0.0625em solid rgb(243, 234, 234);
+}
+nav ul li ul li:hover{
+    background-color: white;
+    color: rgb(245, 122, 29);
+    text-decoration: underline;
+}
+ul> .gnvT{
+    line-height: 3em;
+    width: 10em;
+    display: inline-block;
+    letter-spacing: -0.0625em;
+    margin-left: -0.3125em;
+    justify-content: top;
+}
+ul .gnvT:hover {
+    color: white;
+    background-color: rgb(245, 122, 29);
+}
+h1{
+    letter-spacing: -0.0625em;
+    font-size: 2.3em;
+    display: inline-block;
+    margin: 0.7em 0.2em 0.2em 0.5em;
+}
+h2{
+    letter-spacing: -0.0625em;
+    font-size: 1.1em;
+    display: inline-block;
+    color: rgb(168, 164, 164);
+}
+.g01_1, .g01_2, .g01_3, .g01_4{
+    display: inline-block;
+    width: 15em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+.g01_1:hover, .g01_2:hover, .g01_3:hover, .g01_4:hover{
+    box-shadow: 5px 5px 5px rgb(243, 234, 234);
+}
+.mImg{
+    display: block;
+    margin: 0em auto;
+    width: 11.25em;
+    height: 11.25em;
+}
+.mTitle, .mArtist, .mExplan, .mStar, .mPrice{
+    display: block;
+    text-align: center;
+}
+.mTitle{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.mArtist, .mExplan{
+    font-size: 0.875em;
+    color: rgb(168, 164, 164);
+}
+.mArtist:hover{
+    color: rgb(245, 122, 29);
+}
+.mStar{
+    color: rgba(245, 122, 29, 0.5);
+}
+.mPrice{
+    margin-top: 2em;
+    font-size: 1.1em;
+    text-align: right;
+    color: rgb(245, 122, 29);
+    font-weight: bold;
+}
+.cartI, .likeI{
+    border: 0.0625em solid rgb(243, 234, 234);
+    color: rgb(219, 211, 211);
+    background-color: white;
+    margin:0em;
+    padding: 0.1em;
+    width: 2em;
+    height: 2em;
+}
+.cartI:hover, .likeI:hover{
+    color: rgb(245, 122, 29);
+    cursor: pointer;
+}
+.u01, .u02, .u03{
+    display: inline-block;
+    text-align: center;
+    padding: 2em;
+    margin: 3em;
+    width: 15em;
+    height: auto;
+    box-shadow: 5px 5px 5px 5px rgb(243, 234, 234);
+}
+.uImg{
+    border: 50%;
+    margin-top: 1em;
+    display: block;
+    margin: 0em auto;
+    width: 11.25em;
+    height: 11.25em;
+}
+.uName{
+    display: block;
+    font-size: 2em;
+}
+.uName:hover{
+    color:rgb(245, 122, 29);
+}
+.uExplan{
+    margin-top: 1em;
+    display: block;
+    font-size: 1em;
+}
+.ad{
+    position: relative;
+}
+.ad img{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    width: 65em;
+    height: 7.5em;
+}
+.ad button{
+    color: white;
+    background-color: black;
+    border-radius: 10em;
+    padding: 0.5em 1.5em;
+    position: absolute;
+    right: 6em;
+    top: 4.5em;
+}
+.flex{
+    display: flex;
+}
+.flex01{
+    flex:1;
+}
+.flex02{
+    flex: 1.45;
+}
+#mov{
+    margin: 0em;
+    padding:0em;
+}
+.flex01 button{
+    display: inline-block;
+    width: 10em;
+    height: 10em;
+    border: 0em;
+    margin: 0.5em;
+    padding: 1em;
+    letter-spacing: -0.0625em;
+    color: rgb(83, 83, 83);
+}
+.flex01 button a:hover{
+    color: rgb(245, 122, 29);
+    font-weight: bold;
+}
+.rev01{
+    display: block;
+    font-size: 2em;
+    color: rgb(245, 122, 29);
+    font-weight: bold;
+    padding: 0.5em;
+}
+.rev02{
+    border: 0.2em solid rgb(243, 234, 234);
+    border-radius: 1em;
+    padding: 1em;
+    display: block;
+}
+.rev03{
+    text-decoration: underline;
+    font-weight: 700;
+    margin-top: 1em;
+    margin-left: 1em;
+    display: block;
+    font-size: 1em;
+    color: rgb(245, 122, 29);
+}
+#right{
+    position: relative;
+}
+#sideBar{
+    position: sticky;
+    top: 15em;
+    margin-left: 5em;
+}
+#cartI2, #likeI2, #timeI2{
+    color:rgb(117, 104, 94);
+    font-size: 2em;
+    display: block;
+    padding: 0em;
+    margin: 0.1em;
+    width: 2em;
+    height: 2em;;
+    background-color: white;
+    border: 0.0625em solid rgb(243, 234, 234);
+}
+#cartI2:hover,  #likeI2:hover, #timeI2:hover{
+    color:rgb(245, 122, 29);
+    background-color: rgb(243, 234, 234);
+}
+#cart{
+    border: 0.0625em solid rgb(243, 234, 234) ;
+    background-color: white;
+    width: 16em;
+    height: 30em;
+}
+footer{
+    background-color: rgb(243, 234, 234);
+    padding: 0.5em;
+}
+.fH{
+    font-size: 1.2em;
+    color: rgb(245, 122, 29);
+    font-weight: bold;
+    margin-bottom: 0.7em;
+}
+.fM{
+    color: rgb(83, 83, 83);
+    font-size: 1em;
+}
+footer div{
+    margin: 1em;
+}
+.footer_guide{
+    color: rgb(117, 104, 94);
+    text-align: right;
+    font-size: 0.875em;
+    font-weight: 500;
+    margin: 0em 1.5em 1.5em 0em;
+}
+.footer_guide span:hover{
+    text-decoration: underline;
+    color: rgb(245, 122, 29);
+}
+.FB, .FB01{
+    display: inline-block;
+    margin: 2em;
+    padding: 0.5em;
+}
+.FB01 h3{
+    text-align: left;
+    font-size: 1.2em;
+    color: rgb(245, 122, 29);
+    font-weight: bold;
+    margin-bottom: 0.7em;
+}
+.sns{
+    margin-top: 3em;
+}
+.sns a{
+    margin-right: 1em;
+}
+.last{
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    height: auto;
+    margin-left: 6em;
+    padding-bottom: 3em;
+}
+.LImg{
+    width: 15em;
+    height: 15em;
+}
+.last span{
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+    margin:0em;
+    padding: 0em;
+}
+footer hr{
+    border: 0.0625em solid rgb(219, 211, 211);
+}
+.top img{
+    position: fixed;
+    right: 2em;
+    bottom: 9em;
+    width: 5em;
+    height: 5em;
+} 
+#event{
+    background-image: url(../media/event01.png);
+    width: 63.5em;
+    height: 20em;
+}

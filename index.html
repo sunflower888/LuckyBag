@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/w3.css">
+    <link rel="stylesheet" href="./css/index_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8e067517af918dc7098eddfb361f2c56"></script>
+    <script src="./js/index_js.js"></script>
+    <script>
+		function getGeolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showLocation);
+            }
+        }
+        function showLocation(location) {
+			let lat=0.0, log=0.0;
+			lat = location.coords.latitude;
+            long = location.coords.longitude;
+			var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(lat, long), 
+			level: 3
+		};
+		var map = new kakao.maps.Map(container, options);
+		// 마커가 표시될 위치입니다 
+		var markerPosition  = new kakao.maps.LatLng(lat, long); 
+
+		// 마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+    	position: markerPosition
+		});
+
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
+		// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+		var mapTypeControl = new kakao.maps.MapTypeControl();
+
+		// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+		// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+		// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+		var zoomControl = new kakao.maps.ZoomControl();
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+        }
+
+	</script>
+    <title>☆Lucky Bag☆</title>
+</head>
+
+<body onload="w3_open(); c01_1(); getGeolocation();">
+    <div id="loginSidebar">
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-top" id="rightMenu">
+            <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large w3-hover-none">&times;</button>           
+            <div id="login" class="w3-container">
+                <h3>로그인</h3>
+                <input type="text" class ="width : 7.5em" name="" id="id" placeholder="이메일 또는 아이디"><br>                
+                <input type="password" class ="width : 7.5em" name="" id="pw" placeholder="비밀번호"><br>
+                <a href="#" style="font-size: 0.75em;">아이디/비밀번호를 잊으셨나요?</a></br>
+                <button class="lo" onclick="login();">로그인</button></br></br>
+                <div class="hr-sect">또는</div></br>
+                <div class="snsLogin">
+                    <a href="https://www.naver.com/"><button class="naver"><img src="./media/naver.jpg">  네이버로 로그인</button></a>
+                    <a href="https://www.facebook.com/"><button class="facebook"><img src="./media/facebook.jpg"> 페이스북으로 로그인</button></a>
+                    <a href="https://www.kakaocorp.com/page/"><button class="kakao" style="margin-bottom: 30px;"><img src="./media/kakao.jpg"> 카카오톡으로 로그인</button></a>
+                </div>
+            </div>
+          </div>
+    </div>
+    <header>
+        <div id="up">
+            <div id="language">
+                <span><a href="#">한국어</a></span>&nbsp;&#124;&nbsp;
+                <span><a href="#">English</a></span>&nbsp;&#124;&nbsp;
+                <span><a href="#">中文</a></span>
+            </div>
+            <div id="upBar">
+                <span><a href="#" onclick="openRightMenu();">로그인</a></span>&nbsp;&#124;&nbsp;
+                <span><a href="#">회원가입</a></span>&nbsp;&#124;&nbsp;
+                <span><a id="mP" href="./myPage" target="_self"></a> 마이페이지</a></span>&nbsp;&#124;&nbsp;
+                <span><a href="#">장바구니</a></span>&nbsp;&#124;&nbsp;
+                <span><a href="#">주문/배송조회</a></span> &nbsp;&nbsp;&nbsp;
+                <div id="search">
+                    <input type="text" placeholder="상품명 또는 장인을 검색해보세요.">
+                    <a href="#"><button class="searchIcon"><i class="fa fa-search w3-small"></i></button></a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="title">
+                <div class="tIMG">
+                    <img class="tImg" src="./media/logo.png" alt="tImg">
+                </div>
+                <div id="title01">
+                    <span class="tExplan">한국의 미를 선물하세요</span><br>
+                    <span class="tTitle">복주머니</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <button id="OP" onclick="w3_open()">☰</button> 
+            <button id="CL" onclick="w3_close()">☰</button>
+            <li class="gnvT" onmouseover="u01()" onmouseleave="u01_1()"><a href="#">공예 상품</a>
+                <ul id ="U01">
+                    <li><a href="#">문구류</a></li>
+                    <li><a href="#">USB</a></li>
+                    <li><a href="#">악세서리</a></li>
+                    <li><a href="#">장식 소품</a></li>
+                    <li><a href="#">식기</a></li>
+                    <li><a href="#">잡화</a></li>
+                </ul>
+            </li>
+            <li class="gnvT">
+                <a href="#">신규장인상품</a>
+            </li>
+            <li class="gnvT" onmouseover="u02()" onmouseleave="u02_1()"><a href="#">선물용 추천</a>
+                <ul id ="U02">
+                    <li><a href="#">가격대별 추천</a></li>
+                    <li><a href="#">외국인 친구 선물</a></li>
+                    <li><a href="#">기업/단체 선물</a></li>
+                    <li><a href="#">집들이 선물</a></li>
+                </ul>
+            </li>
+            <li class="gnvT" onmouseover="u03()" onmouseleave="u03_1()"><a href="#">이벤트/소식</a>
+                <ul id ="U03">
+                    <li><a href="#">이벤트</a></li>
+                    <li><a href="#">신상품 소식</a></li>
+                    <li><a href="#">공방체험</a></li> <!--온·오프라인 혼합형, 장인과 '복주머니'의 협업-->
+                    <li><a href="#">공지사항</a></li>
+                </ul>
+            </li>
+            <li class="gnvT" onmouseover="u04()" onmouseleave="u04_1()"><a href="#">상품 후기/문의</a>
+                <ul id ="U04">
+                    <li><a href="#">시간 상품 후기</a></li>
+                    <li><a href="#">자주 묻는 질문</a></li>
+                    <li><a href="#">1대 1 상품 문의</a></li>
+                </ul>
+            </li>
+            <li class="gnvT">
+                <a href="#">복주머니 소개</a>
+            </li>
+        </ul>
+    </nav>
+    <section>
+        <aside id="left">
+
+        </aside>
+        <article>
+            <div id="event">
+            </div>
+            <div id="today">
+                <h1>오늘의 발견</h1> <!--신규 상품-->
+                <h2>새롭게 출시된 장인의 상품을 지금 만나보세요!</h2>
+                <div id="g01">
+                    <div class="g01_1" id="n01">
+                        <a href="#"><img class="mImg" src="./media/pic01.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">냉장고 자석</a></span>
+                        <span class="mArtist"><a href="#">"행복365" 님의 작품</a></span>
+                        <span class="mExplan">생활 속에 함께 하는 한국적인 선물을 전달해보세요.</span>
+                        <span class="mStar">★★★★★(110)</span>
+                        <span class="mPrice">6,990 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n01');" ondblclick="cartRemove('n01');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                    <div class="g01_2" id="n02">
+                        <a href="#"><img class="mImg" src="./media/pic02.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">청자 호박 주전자 세트</a></span>
+                        <span class="mArtist"><a href="#">"행복365" 님의 작품</a></span>
+                        <span class="mExplan">청자의 멋이 살아있는 4인 주기 세트입니다.</span>
+                        <span class="mStar">★★★★☆(32)</span>
+                        <span class="mPrice">29.742 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n02');" ondblclick="cartRemove('n02');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                    <div class="g01_3" id="n03">
+                        <a href="#"><img class="mImg" src="./media/pic03.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">꽃무늬 청자 수저받침</a></span>
+                        <span class="mArtist"><a href="#">"파도444" 님의 작품</a></span>
+                        <span class="mExplan">옥빛의 푸른색이 아름다운 수저받침입니다.</span>
+                        <span class="mStar">★★★☆☆(25)</span>
+                        <span class="mPrice">12,990 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n03');" ondblclick="cartRemove('n03');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                    <div class="g01_4" id="n04">
+                        <a href="#"><img class="mImg" src="./media/pic04.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">민화 엽서(小) - 운룡도</a></span>
+                        <span class="mArtist"><a href="#">"신선"님의 작품</a></span>
+                        <span class="mExplan">조선 민화 대표작을 엽서로 담았습니다.</span>
+                        <span class="mStar">★★★★★(339)</span>
+                        <span class="mPrice">990 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n04');" ondblclick="cartRemove('n04');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div id="popular">
+                <h1>인기 상품</h1>
+                <h2>이 순간, 가장 인기 상품은 바로 이것!</h2>
+                <div id="g02">
+                    <div class="g01_1" id="n05">
+                        <a href="#"><img class="mImg" src="./media/pic05.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">옛 노트(中) - 길쌈</a></span>
+                        <span class="mArtist"><a href="#">"신선"님의 작품</a></span>
+                        <span class="mExplan">김홍도 길쌈 디자인의 옛 노트입니다.</span>
+                        <span class="mStar">★★★★☆(144)</span>
+                        <span class="mPrice">3,900 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n05');" ondblclick="cartRemove1('n05');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                    <div class="g01_2" id="n06">
+                        <a href="#"><img class="mImg" src="./media/pic06.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">전통 컵받침 - 신윤복</a></span>
+                        <span class="mArtist"><a href="#">"lovely33" 님의 작품</a></span>
+                        <span class="mExplan">신윤복 대표 작품이 담겨있는 컵받침입니다.</span>
+                        <span class="mStar">★★★★★(65)</span>
+                        <span class="mPrice">6,741 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n06');" ondblclick="cartRemove1('n06');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                    <div class="g01_3" id="n07">
+                        <a href="#"><img class="mImg" src="./media/pic07.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">전통무늬 펜 2종 - 훈민정음</a></span>
+                        <span class="mArtist"><a href="#">"파도444" 님의 작품</a></span>
+                        <span class="mExplan">부드러운 곡선으로 처리된 상품입니다.</span>
+                        <span class="mStar">★★★★★(47)</span>
+                        <span class="mPrice">5,990 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n07');" ondblclick="cartRemove1('n07');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                    <div class="g01_4" id="n08">
+                        <a href="#"><img class="mImg" src="./media/pic08.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">금장책갈피 - 매화나무</a></span>
+                        <span class="mArtist"><a href="#">"신선"님의 작품</a></span>
+                        <span class="mExplan">아름다운 색채의 매화나무 책갈피입니다.</span>
+                        <span class="mStar">★★★★★(39)</span>
+                        <span class="mPrice">1,611 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n08');" ondblclick="cartRemove1('n08');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div id="new">
+                <h1>신규 장인 입점</h1>
+                <h2>새로 입점한 장인들을 반갑게 맞아주세요!</h2>
+                <div class="new01">
+                    <div class="u01">
+                        <img class="uImg" src="./media/user01.png" alt="uImg01">
+                        <span class="uName"><a href="#">지토</a></span>
+                        <span class="uExplan">황토 인형 장인 "지토". 한복을 차려 입은 나만의 작은 인형을 만나보세요.</span>
+                    </div>
+                    <div class="u02">
+                        <img class="uImg" src="./media/user01.png" alt="uImg02">
+                        <span class="uName"><a href="#">나무꾼12</a></span>
+                        <span class="uExplan">나무의 결이 살아있는 작품. 나무가 말해주는 한국의 미를 감상해보세요.</span>
+                    </div>
+                    <div class="u03">
+                        <img class="uImg" src="./media/user01.png" alt="uImg03">
+                        <span class="uName"><a href="#">정철입니다</a></span>
+                        <span class="uExplan">장인의 손에서 나타나는 한국의 아름다운 풍경을 지금 감상해보세요.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ad">
+                <img src="./media/ad01.png">
+                <button><a href="#">더 알아보기</a></button>
+            </div>
+            <div class="flex">
+                <div class="flex01">
+                    <div>
+                        <h1>장인과 함께하는 시간</h1> 
+                        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;복주머니의 장인과 함께 작품을 만들어 보아요.</h2>
+                    </div>
+                    <div>
+                        <button class="join">
+                            <a href="#"><span>장인 "정철입니다"와 한국의 아름다운 풍경 그리기</span></a>
+                        </button>
+                        <button class="join01">
+                            <a href="#"><span>장인 "행복888"과 함께 나만의 매듭 만들기</span></a>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex02" id="mov">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DhsfNTN4OR4?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><!--?autoplay=1&mute=1로 음소거 후 자동재생-->
+                </div>
+            </div>
+            <div id="recommand">
+                <h1>추천 상품</h1>
+                <h2>복주머니 PICK! 복주머니 최고의 상품!</h2>
+                <div id="g03">
+                    <div class="g01_1" id="n09">
+                        <a href="#"><img class="mImg" src="./media/pic09.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">청자 2인 다기세트 - 운학</a></span>
+                        <span class="mArtist"><a href="#">"행복365" 님의 작품</a></span>
+                        <span class="mExplan">전통의 멋이 살아있는 다기세트입니다.</span>
+                        <span class="mStar">★★★★★(10)</span>
+                        <span class="mPrice">49,900 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n09');" ondblclick="cartRemove2('n09');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                    <div class="g01_2" id="n10">
+                        <a href="#"><img class="mImg" src="./media/pic10.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">황토인형 - 선비와 어우동</a></span>
+                        <span class="mArtist"><a href="#">"lovely33" 님의 작품</a></span>
+                        <span class="mExplan">한복을 입은 선비와 어우동 황토인형입니다.</span>
+                        <span class="mStar">★★★★★(112)</span>
+                        <span class="mPrice">19,990 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n10');" ondblclick="cartRemove2('n10');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                    <div class="g01_3" id="n11">
+                        <a href="#"><img class="mImg" src="./media/pic11.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">한국의 美 - 전통수저2p세트</a></span>
+                        <span class="mArtist"><a href="#">"행복365" 님의 작품</a></span>
+                        <span class="mExplan">고급 전통 수공예 수저 세트로 손잡이의 무늬가 아름답습니다.</span>
+                        <span class="mStar">★★★★☆(52)</span>
+                        <span class="mPrice">22,990 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n11');" ondblclick="cartRemove2('n11');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                    <div class="g01_4" id="n12">
+                        <a href="#"><img class="mImg" src="./media/pic12.jpg" alt="mImg"></a>
+                        <hr>
+                        <span class="mTitle"><a href="#">비단 전통 오침 노트(청색)</a></span>
+                        <span class="mArtist"><a href="#">"신선"님의 작품</a></span>
+                        <span class="mExplan">비단으로 만든 전통 오침 노트입니다.</span>
+                        <span class="mStar">★★★★☆(39)</span>
+                        <span class="mPrice">11,042 원</span>
+                        <div> 
+                            <button class="cartI" onclick="cartAppend('n12');" ondblclick="cartRemove2('n12');" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            <button class="likeI"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div id="review">
+                <h1>금주의 리뷰왕</h1> 
+                <h2>리뷰왕이 선택한 복주머니 상품!</h2>
+                <div class="g01">
+                    <div class="rev">
+                        <span class="rev01">'술이 좋아' 님의 상품 리뷰</span>
+                        <span class="rev02">
+                            와인 홀더가 필요해서 하나 장만할까하다가, 우연히 복주머니에서 자개 디자인의 와인 홀더가 너무 예뻐 바로 구매하고 말았네요.
+                            반짝반짝 빛이 나는 모습 오래 유지하려구 매일 마른 걸레로 닦아 주고 있어요.ㅎㅎㅎ
+                            너무도 이쁜 디자인이라 매우 만족스럽네요. 다음에 집들이 선물로 주문해도 좋을 것 같아요. 배송도 안전하게 와서 물건 흠집난 곳 없이 잘 왔습니다. 꼭 추천드려요!                            
+                        </span>
+                        <span class="rev03">'술이 좋아' 님이 구매하신 상품은?</span>
+                        <div class="g01_1" id="n13">
+                            <a href="#"><img class="mImg" src="./media/pic13.jpg" alt="mImg"></a>
+                            <hr>
+                            <span class="mTitle"><a href="#">자개 와인홀더 - 송학 무광(흑색)</a></span>
+                            <span class="mArtist"><a href="#">"파도444" 님의 작품</a></span>
+                            <span class="mExplan">한국 전통의 나전 칠기로 제작된 특별한 와인 홀더</span>
+                            <span class="mStar">★★★★★(20)</span>
+                            <span class="mPrice">39,990 원</span>
+                        </div>
+                    </div>
+                    <div class="rev">
+                        <span class="rev01">'감성 충만' 님의 상품 리뷰</span>
+                        <span class="rev02">
+                            퇴근하고 집에 와서 침대에 누워 책을 읽는게 저의 스트레스 해소법 중 하나에요. 최근 좌등이 고장나서 새로운 상품을 찾다가 고풍스러운 디자인의 좌등을 발견했네요.^^
+                            밤에 이것만 밝히고 있으면 왠지 고즈넉한 분위기에 멍하니 앉아 있기만 해도 편해지는 기분이에요. 힐링이 필요하시거나 인테리어에 변화를 주고 싶은 분께 추천드려요~!^^        
+                        </span>
+                        <span class="rev03">'감성 충만' 님이 구매하신 상품은?</span>
+                        <div class="g01_2" id="n14">
+                            <a href="#"><img class="mImg" src="./media/pic14.jpg" alt="mImg"></a>
+                            <hr>
+                            <span class="mTitle"><a href="#">미니 좌등 - 파고다기와</a></span>
+                            <span class="mArtist"><a href="#">"lovely33" 님의 작품</a></span>
+                            <span class="mExplan">육각 기와의 멋스러움과 나무로 섬세하게 깎아 만든 수작업 좌등입니다.</span>
+                            <span class="mStar">★★★★★(32)</span>
+                            <span class="mPrice">53,991 원</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <aside id="right">
+            <div class="top">
+                <a href="#"><img src="./media/top.png" alt="top"></a>
+            </div>
+            <div id="sideBar">
+                <div>
+                    <button id="cartI2" onclick="c01()" ondblclick="c01_1()"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    <div id="cart"></div>
+                </div>
+                <div>
+                    <button id="likeI2"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                </div>
+                <div>
+                    <button id="timeI2"><i class="fa fa-clock-o" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </aside>
+    </section>
+    <footer>
+        <div class="footer_guide">
+            <!--&#124;수직선, &nbsp;뛰어쓰기-->
+            <span>이용약관</span>&nbsp;&#124;
+            <span>개인정보 처리방침</span>&nbsp;&#124;
+            <span>공지사항</span>&nbsp;&#124;
+            <span>1대1 질문</span>&nbsp;&#124;
+            <span>재휴/도매/입점 문의</span>&nbsp;&#124;
+            <span>고객센터</span>&nbsp;&#124;
+            <span>인재영입</span>
+        </div>
+        <div class="ft">
+            <div class="FB">
+                <div class="SC">
+                    <span class="fH">고객센터</span><br>
+                    <span class ="fM">전화 : 070-111-2222</span><br>
+                    <span class ="fM">팩스 : 051-1122-2233 </span><br>
+                    <span class ="fM">이메일: lucky1234@lucky.bag</span><br>
+                </div>
+                <div class="OH">
+                    <span class="fH">근무시간</span><br>
+                    <span class ="fM">평일(월요일-금요일) 오전 10시 - 오후 6시 (점심시간 1시-2시)</span><br>
+                    <span class ="fM">토요일, 일요일, 공휴일에는 근무하지 않습니다.</span>
+                </div>
+                <div class="BA">
+                    <span class="fH">은행 입금계좌</span><br>
+                    <span class ="fM">국민은행 : 166-11-1111-222</span><br>
+                    <span class ="fM">신한은행 : 110-444-555555</span>
+                </div>
+                <div class="sns" >
+                    <a href="https://www.youtube.com/user/koreanheritage/featured" target="_blank"><i class="fa fa-youtube" style="font-size:30px;"></i></a> 
+                    <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook" style="font-size:30px;"></i></a> 
+                    <a href="https://www.instagram.com/?hl=ko" target="_blank"><i class="fa fa-instagram" style="font-size:30px;"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter" style="font-size:30px;"></i></a> 
+                </div>
+            </div>
+            <div class="FB01">
+                <h3>&nbsp;&nbsp;&nbsp;오시는 길</h3>
+                <div id="map" style="width: 30em; height:19em;">
+                </div>
+            </div>
+            <div class="last">
+                <img class="LImg" src="./media/logo.png" alt="tImg">
+                <span>복주머니</span>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <span class="fM">
+                회사명 : 복주머니 | 대표자 : 배금빈 | 주소 : 부산광역시 사하구 낙동대로 550번길 37 | 전화 : 070-111-2222 | 팩스 : 051-1122-2233 
+                | 이메일 : help@luckybag.com | 사업자 등록번호 : 000-11-23333 [사업자정보확인] 사업 개시일 2021년 11월 1일 
+                | 통신 판매업신고 번호 : 제 2020-부산중구-1122호 | 개인정보관리 책임자 : 배금빈(lucky1234@luckybag.com) | 결제 PG 대행사 : KPC, 애스크로 서비스 : KPC애스크로 
+                | 호스팅 제공자 : (주) 스마일 | Copyright&#169;복주머니.All Right Reserved.
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
