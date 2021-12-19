@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuckyBag Coupon Event</title>
+    <style>
+        #coupon, .close01{
+            display: block;
+            width: 15em;
+            height: auto;
+            padding: 0.7em;
+            margin-top: 1em;
+            color: white;
+            background-color: black;
+            cursor: pointer;
+            border-radius: 0.5em;
+            letter-spacing: -0.065em;
+        }
+        #coupon:hover, .close01:hover{
+            background-color: rgb(245, 122, 29);
+            border: coral;
+        }
+        body, img{
+            text-align: center;
+            width: 30em;
+            height: 34em;
+            position: relative;
+        }
+        #button01{
+            display: block;
+            position: absolute;
+            bottom: 2em;
+            left: 8.5em;
+        }
+    </style>
+    <script>
+        function al01(){
+            alert("쿠폰이 쿠폰함에 지급되었습니다.")
+        }
+    </script>
+</head>
+
+<body>
+    <img src="./media/event02.png" alt="event02" >
+    <div id="button01">
+        <button id="coupon" onclick="al01()">지금 쿠폰 받으로 가기</button>
+        <button class="close01" onclick = "window.close();">닫기</button>
+    </div>
+    <br>
+</body>
+</html>
