@@ -21,12 +21,12 @@
             long = location.coords.longitude;
 			var container = document.getElementById('map');
 		var options = {
-			center: new kakao.maps.LatLng(lat, long), 
+			center: new kakao.maps.LatLng(35.10493381360342, 129.01906109601333), 
 			level: 3
 		};
 		var map = new kakao.maps.Map(container, options);
 		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(lat, long); 
+		var markerPosition  = new kakao.maps.LatLng(35.10493381360342, 129.01906109601333); 
 
 		// 마커를 생성합니다
 		var marker = new kakao.maps.Marker({
